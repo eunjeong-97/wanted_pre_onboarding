@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import Title from '../common/Title'
 
@@ -44,14 +44,49 @@ const Input = styled.input`
   }
 `
 
+const checkedColor = keyframes`
+from {
+    width: 0px;
+    left: 11px;
+    border-radius: 0;
+  }
+  to {
+    width: 100%;
+  }
+`
+
+const uncheckedColor = keyframes`
+from {
+    width: 50px;
+  }
+  to {
+    width: 0;
+    left: 11px;
+    border-radius: 0;
+  }
+  `
+
 const Label = styled.label`
   position: relative;
   display: block;
   width: 60px;
   height: 26px;
   border-radius: 50px;
-  transition: background-color 0.2s linear;
-  background-color: ${props => (props.isChecked ? 'tomato' : 'grey')};
+  background-color: grey;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: tomato;
+    border-radius: 50px;
+    animation: ${props => (props.isChecked ? checkedColor : uncheckedColor)}
+      0.2s linear forwards;
+  }
 `
 
 const Ball = styled.div`
@@ -63,6 +98,7 @@ const Ball = styled.div`
   left: 5px;
   transition: transform 0.2s linear;
   background-color: white;
+  z-index: 3000;
 `
 
 const Text = styled.p`

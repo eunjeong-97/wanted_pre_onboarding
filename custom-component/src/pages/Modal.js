@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import Title from '../components/Title'
-import Portal from '../components/Portal'
-import ModalPage from '../components/ModalPage'
+import Portal from '../components/Modal/Portal'
+import ModalPage from '../components/Modal/ModalPage'
 
 const Modal = () => {
   const [isOpenModal, setIsOpenModal] = useState(false)

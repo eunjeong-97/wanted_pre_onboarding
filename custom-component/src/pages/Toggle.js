@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 
-import Title from '../common/Title'
+import Title from '../components/Title'
 
 const Toggle = () => {
   const [isChecked, setIsChecked] = useState(false)

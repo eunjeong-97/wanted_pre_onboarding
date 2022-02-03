@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Title from '../common/Title'
+import Title from '../components/Title'
 
-const ClickToEdit = () => {
+const Tab = () => {
   return (
     <WholeBox>
-      <Title text='ClickToEdit' />
+      <Title text='Tab' />
     </WholeBox>
   )
 }
@@ -15,4 +15,4 @@ const WholeBox = styled.div`
   padding: 10px;
 `
 
-export default ClickToEdit
+export default Tab

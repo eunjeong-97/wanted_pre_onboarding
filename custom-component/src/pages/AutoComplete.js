@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Title from '../common/Title'
+import Title from '../components/Title'
 
-const Modal = () => {
+const AutoComplete = () => {
   return (
     <WholeBox>
-      <Title text='Modal' />
+      <Title text='AutoComplete' />
     </WholeBox>
   )
 }
@@ -15,4 +15,4 @@ const WholeBox = styled.div`
   padding: 10px;
 `
 
-export default Modal
+export default AutoComplete

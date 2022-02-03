@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import Home from './components/Home.js'
-import Toggle from './components/Toggle.js'
-import Modal from './components/Modal'
-import Tab from './components/Tab'
-import Tag from './components/Tag'
-import AutoComplete from './components/AutoComplete'
-import ClickToEdit from './components/ClickToEdit'
+import Home from './pages/Home.js'
+import Toggle from './pages/Toggle.js'
+import Modal from './pages/Modal'
+import Tab from './pages/Tab'
+import Tag from './pages/Tag'
+import AutoComplete from './pages/AutoComplete'
+import ClickToEdit from './pages/ClickToEdit'
 
 class App extends Component {
   render() {

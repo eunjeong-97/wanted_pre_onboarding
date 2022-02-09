@@ -25,8 +25,11 @@
 
 ![](image/tag.gif)
 
-<!-- - AutoComplete
-- ClickToEdit -->
+✅ AutoComplete
+
+![](image/autoComplete.gif)
+
+- ClickToEdit
 
 ## 🙆 프로젝트 실행방법
 
@@ -127,6 +130,11 @@ input의 값을 `tagItem` 이라는 state으로 저장하고,
 
 따라서, **`tagItem`, `tagList` state를 관리**하는 것이 핵심 구현사항이라고 볼 수 있습니다.
 
+✅ AutoComplete
+
+> 내용 입력 요망
+
+
 ## 🔥 Error Handling Log
 
 > 구현하면서 어려웠던 점과 해결 방법
@@ -181,3 +189,7 @@ useRef를 적용시켰더니, 어떤 태그의 `X 버튼`을 눌러도 맨 마�
 2. `e.target.parentElement.firstChild.innerText`
 
 더 나은 방법은 아직 찾지 못해서, 직접 event 객체를 통해 DOM에 접근해서 필터를 적용한 array로 대체했습니다.
+
+✅ AutoComplete
+
+> 내용 입력 요망

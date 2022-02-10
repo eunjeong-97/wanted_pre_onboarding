@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-
 import Title from '../components/Title'
 
 const wholeTextArray = [
   'apple',
+  'banana',
   'coding',
   'javascript',
   '원티드',
@@ -49,9 +49,6 @@ const AutoComplete = () => {
       ) {
         setDropDownItemIndex(dropDownItemIndex + 1)
       }
-      //dropDownList.length에 -1을 해주는 이유는 selected의 최대값을 맞춰주기 위해서이다.
-      //예를들어 밑에 option이 2개가 나왔다고 가정했을 때, selected값이 최대 1까지 변할 수 있게 해줘야한다.
-      //'ArrowDown'키를 누르면 selected는 0이 되고, 한번 더 누르면 1이 되고, 그 다음은 더이상 옵션이 없기 때문에 키가 안먹히게 해주는 것이다.
 
       if (event.key === 'ArrowUp' && dropDownItemIndex >= 0)
         setDropDownItemIndex(dropDownItemIndex - 1)
@@ -86,6 +83,7 @@ const AutoComplete = () => {
               <DropDownItem
                 key={dropDownIndex}
                 onClick={() => clickDropDownItem(dropDownItem)}
+                onMouseOver={() => setDropDownItemIndex(dropDownIndex)}
                 className={
                   dropDownItemIndex === dropDownIndex ? 'selected' : ''
                 }
@@ -146,16 +144,12 @@ const DropDownBox = styled.ul`
   box-shadow: 0 10px 10px rgb(0, 0, 0, 0.3);
   list-style-type: none;
   z-index: 3;
-
-  &.selected {
-    background-color: lightgray;
-  }
 `
 
 const DropDownItem = styled.li`
   padding: 0 16px;
 
-  &:hover {
+  &.selected {
     background-color: lightgray;
   }
 `

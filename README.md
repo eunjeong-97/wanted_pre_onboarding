@@ -13,6 +13,7 @@
     - [✅ Tab](#-tab)
     - [✅ Tag](#-tag)
     - [✅ AutoComplete](#-autocomplete)
+    - [✅ ClickToEdit](#-clicktoedit)
   - [🔥 Error Handling Log](#-error-handling-log)
     - [✅ Toggle](#-toggle-1)
     - [✅ Tag](#-tag-1)
@@ -139,28 +140,28 @@ input의 값을 `tagItem` 이라는 state으로 저장하고,
 
 ![](image/google_searchbar.png)
 
-- 검색창에 input값을 입력하면 밑에 input값과 유사한 전체 단어을 dropdown 형식으로 보여주는 자동 완성 기능을 구현했습니다.
+검색창에 input값을 입력하면 밑에 input값과 유사한 전체 단어을 dropdown 형식으로 보여주는 자동 완성 기능을 구현했습니다.
 
 > #### 필요한 state 정리
 
 1. `inputValue`: input에 들어간 값
-  - ~~google에서는 해당 input값으로 시작하는 단어만 보여주지만, 과제사항에서는 해당 값을 포함하는 모든 단어를 보여주기 때문에~~ input에 입력한 값을 포함한 단어를 dropdown에 보여줍니다 
-  - `string.includes()` 메서드 활용
-  - 초기 state: `빈문자열 ''`
+     - ~~google에서는 해당 input값으로 시작하는 단어만 보여주지만, 과제사항에서는 해당 값을 포함하는 모든 단어를 보여주기 때문에~~ input에 입력한 값을 포함한 단어를 dropdown에 보여줍니다 
+     - `string.includes()` 메서드 활용
+     - 초기 state: `빈문자열 ''`
   
 2. `isHaveInputValue`: 입력된 input값이 있는지의 여부
-  - 입력된 input값이 있다면 dropdown을 보여주고, 입력된 input값이 없다면 dropdown을 보여주지 않습니다 
-  - `Boolean`형태
-  - 초기 state: `false`
+     - 입력된 input값이 있다면 dropdown을 보여주고, 입력된 input값이 없다면 dropdown을 보여주지 않습니다 
+     - `Boolean`형태
+     - 초기 state: `false`
   
 3. `dropDownList`: dropdown에 보여줄 자동완성된 단어목록(리스트)
-  - dropdown을 살펴보면 동일한 형태의 컴포넌트가 반복적으로 보여줍니다 
-  - `array.map()` 메서드 활용
-  - 초기 state: `[]`
+     - dropdown을 살펴보면 동일한 형태의 컴포넌트가 반복적으로 보여줍니다 
+     - `array.map()` 메서드 활용
+     - 초기 state: `[]`
   
 4. `dropDownItemIndex`: `내가 선택한` 자동완성된 단어 item의 index
-  - dropdown에 나타나는 추천단어 리스트 array에서 내가 선택한 단어(요소)를 가리키기 위해 필요합니다.
-  - 만약 `dropDownList.map()` 를 통해 dropdown이 나왔을 때, `해당하는 index`와 `dropDownItemIndex`이 동일하면 배경색을 lightgrey로 변경해서 선택되었음을 알려줍니다.
+     - dropdown에 나타나는 추천단어 리스트 array에서 내가 선택한 단어(요소)를 가리키기 위해 필요합니다.
+     - 만약 `dropDownList.map()` 를 통해 dropdown이 나왔을 때, `해당하는 index`와 `dropDownItemIndex`이 동일하면 배경색을 lightgrey로 변경해서 선택되었음을 알려줍니다.
 
 > #### InputBox 영역
 
@@ -186,13 +187,26 @@ beasts.indexOf('javascript') // 2
 
 1. `inputValue`이 존재할 때만 보여져야 하기 때문에 `isHaveInputValue`이 true일 때 렌더링되도록 했습니다.
 2. dropDown에 들어갈 데이터는 array형태의 `dropDownList` state인데, 만약 하나도 없을 경우 빈 배열만 나오기 때문에 
-  - `dropDownList.length === 0` 일 때에는 해당하는 단어가 없다고 렌더링했습니다.
-  - 하나 이상 있을 때에는 `map()`메서드를 통해 `<DropDownItem>` 컴포넌트를 반복적으로 만들었습니다.
+     - `dropDownList.length === 0` 일 때에는 해당하는 단어가 없다고 렌더링했습니다.
+     - 하나 이상 있을 때에는 `map()`메서드를 통해 `<DropDownItem>` 컴포넌트를 반복적으로 만들었습니다.
 3. `<DropDownItem>` 을 눌렀을 때 (=클릭했을 때)
-  - 해당하는 값으로 `inputValue` state를 업데이트 하고,
-  - 자동완성 단어를 선택되었기 때문에 dropDown 영역을 보여주지 않기 위해 `isHaveInputValue` state를 false로 변경했습니다.
+     - 해당하는 값으로 `inputValue` state를 업데이트 하고,
+     - 자동완성 단어를 선택되었기 때문에 dropDown 영역을 보여주지 않기 위해 `isHaveInputValue` state를 false로 변경했습니다.
 4. `<DropDownItem>` 을 마우스오버했을 때
-  - 해당하는 index를 `dropDownItemIndex` state로 업데이트합니다.
+     - 해당하는 index를 `dropDownItemIndex` state로 업데이트합니다.
+
+### ✅ ClickToEdit
+
+![](image/clickToEdit.gif)
+
+Input창을 클릭하면 해당 값을 수정할 수 있고, 다른 영역을 눌렀을 때에는 변경된 내용으로 값이 저장되는 기능으로 이해했습니다.
+
+그렇기 때문에 input의 값을 저장하는 state와 focus가 벗어났을 때 저장될 state를 따로 관리했습니다.
+
+1. input에 onChange 이벤트 헨들링: `nameInputValue, ageInputValue` state를 업데이트하고,
+2. `onfocus` 이벤트 핸들링: focus되었을 때에는 input의 text가 전체 선택되도록 하고, 
+3. `onblur` 이벤트 핸들링: focus되지 않았을 때에는 임시로 저장한 `inputValue`을 각각의 `nameResult, ageResult` state로 업데이트 했습니다.
+
 
 ## 🔥 Error Handling Log
 

@@ -1,6 +1,6 @@
-# wanted_pre_onboarding
+# 원티드 프리온보딩 코스
 
-목차
+#### 목차
 - [wanted_pre_onboarding](#wanted_pre_onboarding)
   - [⛏ Skills](#-skills)
   - [🙆 프로젝트 실행방법](#-프로젝트-실행방법)
